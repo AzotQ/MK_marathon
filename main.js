@@ -1,4 +1,3 @@
-// Task #0
 const person1 = {
     name: 'Sonya',
     hp: 68,
@@ -19,38 +18,6 @@ const person2 = {
     },
 }
 
-// Task #1
-// function createPlayer(charClass, charName, hp) {
-//     let $divPlayer = document.createElement('div');
-//     $divPlayer.classList.add(charClass);
-
-//     let $divProgressbar = $divPlayer.appendChild(document.createElement('div'));
-//     $divProgressbar.classList.add('progressbar');
-
-//     let $divLife = $divProgressbar.appendChild(document.createElement('div'));
-//     $divLife.classList.add('life');
-//     $divLife.style.width = `${hp}%`;
-
-//     let $divName = $divProgressbar.appendChild(document.createElement('div'));
-//     $divName.classList.add('name');
-//     $divName.innerText = charName;
-
-//     let $divCharacter = $divPlayer.appendChild(document.createElement('div'));
-//     $divCharacter.classList.add('character');
-
-//     let $imgCharacter = $divCharacter.appendChild(document.createElement('img'));
-//     $imgCharacter.src = 'http://reactmarathon-api.herokuapp.com/assets/scorpion.gif';
-
-//     let $targetDiv = document.querySelector('.arenas');
-//     $targetDiv.appendChild($divPlayer);
-// }
-
-// Task #2
-// createPlayer('player1', 'Sonya', 68);
-// createPlayer('player2', 'Kitana', 85);
-
-
-// Task #3 (*)
 function createPlayer(charClass, person) {
     let $divPlayer = document.createElement('div');
     $divPlayer.classList.add(charClass);
