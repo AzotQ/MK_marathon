@@ -1,7 +1,7 @@
 const person1 = {
     name: 'Sonya',
     hp: 68,
-    img: 'http://reactmarathon-api.herokuapp.com/assets/sonya.gif',
+    img: '//reactmarathon-api.herokuapp.com/assets/sonya.gif',
     weapon: ['gun', 'knife', 'spear'],
     attack: function () {
         console.log(this.name + ' Fight...');
@@ -11,7 +11,7 @@ const person1 = {
 const person2 = {
     name: 'Kitana',
     hp: 85,
-    img: 'http://reactmarathon-api.herokuapp.com/assets/kitana.gif',
+    img: '//reactmarathon-api.herokuapp.com/assets/kitana.gif',
     weapon: ['spear', 'machete', 'hook'],
     attack: function () {
         console.log(this.name + ' Fight...');
