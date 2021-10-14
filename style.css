@@ -177,7 +177,6 @@ body {
 
 .character {
     position: absolute;
-    /* bottom: 20px; */
     bottom: -100px;
     width: 150px;
     height: 268px;
