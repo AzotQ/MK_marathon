@@ -1,4 +1,7 @@
+let $divArenas = document.querySelector('.arenas');
+
 const person1 = {
+    player: 1,
     name: 'Sonya',
     hp: 68,
     img: 'https://reactmarathon-api.herokuapp.com/assets/sonya.gif',
@@ -9,6 +12,7 @@ const person1 = {
 }
 
 const person2 = {
+    player: 2,
     name: 'Kitana',
     hp: 85,
     img: 'https://reactmarathon-api.herokuapp.com/assets/kitana.gif',
@@ -18,31 +22,33 @@ const person2 = {
     },
 }
 
-let $divArenas = document.querySelector('.arenas');
+function createNewElement(tagName, className) {
+    let $elem = document.createElement(tagName);
+    if (className) {
+        $elem.classList.add(className);
+    }
 
-function createPlayer(charClass, person) {
-    let $divPlayer = document.createElement('div');
-    $divPlayer.classList.add(charClass);
+    return $elem;
+}
 
-    let $divProgressbar = $divPlayer.appendChild(document.createElement('div'));
-    $divProgressbar.classList.add('progressbar');
-
-    let $divLife = $divProgressbar.appendChild(document.createElement('div'));
-    $divLife.classList.add('life');
+function createPlayer(person) {
+    let $divPlayer = createNewElement('div', `player${person.player}`);
+    let $divProgressbar = createNewElement('div', 'progressbar');
+    let $divLife = createNewElement('div', 'life');
     $divLife.style.width = `${person.hp}%`;
-
-    let $divName = $divProgressbar.appendChild(document.createElement('div'));
-    $divName.classList.add('name');
+    let $divName = createNewElement('div', 'name');
     $divName.innerText = person.name;
-
-    let $divCharacter = $divPlayer.appendChild(document.createElement('div'));
-    $divCharacter.classList.add('character');
-
-    let $imgCharacter = $divCharacter.appendChild(document.createElement('img'));
+    let $divCharacter = createNewElement('div', 'character');
+    let $imgCharacter = createNewElement('img');
     $imgCharacter.src = person.img;
 
     $divArenas.appendChild($divPlayer);
+    $divPlayer.appendChild($divProgressbar);
+    $divProgressbar.appendChild($divLife);
+    $divProgressbar.appendChild($divName);
+    $divPlayer.appendChild($divCharacter);
+    $divCharacter.appendChild($imgCharacter);
 }
 
-createPlayer('player1', person1);
-createPlayer('player2', person2);
+createPlayer(person1);
+createPlayer(person2);
