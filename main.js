@@ -1,5 +1,6 @@
 let $divArenas = document.querySelector('.arenas');
 let $randomButton = document.querySelector('.button');
+let $divControl = document.querySelector('.control');
 
 const person1 = {
     player: 1,
@@ -59,11 +60,14 @@ function hitPower() {
 
 function changePlayerHealth(person) {
     let $divPlayerLife = document.querySelector(`.player${person.player} .life`);
+    let $divPlayerCharacter = document.querySelector(`.player${person.player} .character`);
     person.hp -= hitPower();
     if (person.hp <= 0) {
         $divPlayerLife.style.width = '0';
         $divArenas.appendChild(playerWin(person));
         $randomButton.disabled = true;
+        $divPlayerCharacter.classList.add('character-loser');
+        createButtonForNewGame();
     } else {
         $divPlayerLife.style.width = `${person.hp}%`;
     }
@@ -79,6 +83,44 @@ function playerWin(person) {
 
     return $divLoseTitle;
 }
+
+function createButtonForNewGame() {
+    let $buttonNewGame = createNewElement('button', 'buttonNG');
+    $buttonNewGame.innerText = 'new game';
+    $divControl.appendChild($buttonNewGame);
+    $divControl.style.width = '260px';
+    $buttonNewGame.onclick = function () {
+        person1.hp = 100;
+        person2.hp = 100;
+        let $divPlayer1Life = document.querySelector(`.player1 .life`);
+        let $divPlayer2Life = document.querySelector(`.player2 .life`);
+        $divPlayer1Life.style.width = `100%`;
+        $divPlayer2Life.style.width = `100%`;
+        let $divCharacter1 = document.querySelector('.player1 .character');
+        let $divCharacter2 = document.querySelector('.player2 .character');
+        $divCharacter1.classList.remove('character-loser');
+        $divCharacter2.classList.remove('character-loser');
+        $randomButton.disabled = false;
+        if ($buttonNewGame.parentNode) {
+            $buttonNewGame.parentNode.removeChild($buttonNewGame);
+        }
+        let $loseTitle = document.querySelector('.loseTitle');
+        if ($loseTitle.parentNode) {
+            $loseTitle.parentNode.removeChild($loseTitle);
+        }
+    }
+}
+
+// document.querySelector('.buttonNG').onclick = function () {
+//     person1.hp = 100;
+//     person2.hp = 100;
+//     let $divPlayer1Life = document.querySelector(`.player1 .life`);
+//     let $divPlayer2Life = document.querySelector(`.player2 .life`);
+//     $divPlayer1Life.style.width = `100%`;
+//     $divPlayer2Life.style.width = `100%`;
+//     $divCharacter.classList.remove('character-loser');
+// }
+
 
 
 $randomButton.addEventListener('click', function () {

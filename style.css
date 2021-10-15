@@ -277,3 +277,48 @@ body {
 .character {
     transform: translate(0, 50%);
 }
+
+.buttonNG {
+    display: block;
+    position: relative;
+    padding: 0 16px;
+    height: 36px;
+    color: white;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: #6441ff;
+    border: none;
+    margin-top: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-family: "Mortal Kombat 3";
+    outline: none;
+}
+.buttonNG::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 4px;
+    left: 0;
+    background-color: #cd0e03;
+    border-radius: 4px;
+    z-index: -1;
+}
+.buttonNG:hover {
+    background-color: #6441ff;
+}
+.buttonNG:active {
+    top: 2px;
+}
+.buttonNG:active::after {
+    top: 1px;
+}
+.character-loser {
+    transition: all 1.3s ease 0s;
+    transform: translate(0px, -80%) rotate(
+0.75turn) scale(0.01);
+}
