@@ -322,3 +322,13 @@ body {
     transform: translate(0px, -80%) rotate(
 0.75turn) scale(0.01);
 }
+.character-winner1 {
+    transition: all 0.9s ease 0s;
+    transform: translate(175%, 30%) rotate( 
+1turn) scale(1.6);
+}
+.character-winner2 {
+    transition: all 0.9s ease 0s;
+    transform: translate(-175%, 30%) rotate( 
+1turn) scale(1.6);
+}

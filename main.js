@@ -76,9 +76,11 @@ function changePlayerHealth(person) {
 function playerWin(person) {
     let $divLoseTitle = createNewElement('div', 'loseTitle');
     if (person == person1) {
-        $divLoseTitle.innerText = `${person2.name} wins!`
+        $divLoseTitle.innerText = `${person2.name} wins!`;
+        document.querySelector('.player2 .character').classList.add('character-winner2');
     } else {
-        $divLoseTitle.innerText = `${person1.name} wins!`
+        $divLoseTitle.innerText = `${person1.name} wins!`;
+        document.querySelector('.player1 .character').classList.add('character-winner1');
     }
 
     return $divLoseTitle;
@@ -99,7 +101,9 @@ function createButtonForNewGame() {
         let $divCharacter1 = document.querySelector('.player1 .character');
         let $divCharacter2 = document.querySelector('.player2 .character');
         $divCharacter1.classList.remove('character-loser');
+        $divCharacter1.classList.remove('character-winner1');
         $divCharacter2.classList.remove('character-loser');
+        $divCharacter2.classList.remove('character-winner2');
         $randomButton.disabled = false;
         if ($buttonNewGame.parentNode) {
             $buttonNewGame.parentNode.removeChild($buttonNewGame);
